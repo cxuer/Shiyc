@@ -1,0 +1,53 @@
+MYSQL 8.0.12的安装与卸载
+一，MySQL8.0.12版本安装步骤。
+
+1，下载
+
+https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.12-winx64.zip
+
+2,解压
+
+将mysql-8.0.12-winx64.zip解压到 D：/mysql 目录下
+
+3打开cmd命令控制台，输入以下命令。
+
+         d:
+
+         cd\
+
+         cd mysql
+
+         cd bin
+
+         d:\mysql\bin>mysqld --initialize-insecure                      初始化数据库目录，账号为root，无密码。执行后mysql目录下将会多出一个data文件夹。
+
+4，安装数据库系统服务，输入以下命令。
+
+         d:\mysql\bin\mysqld --install  xxx           xxx是服务名称，不写为默认服务名mysql。
+
+         net start mysql                          启动数据库服务
+
+5，登录数据库服务器
+
+        d:\mysql\bin>mysql -uroot           直接登录  无密码
+
+        mysql>select version();               查看当前版本号
+
+        mysql>show user();                     查看登录账号
+
+        mysql>show databases;              查看所有数据库
+
+       mysql>create database db;          建立数据库
+      
+      修改密码
+      ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+
+flush privileges;
+
+6，退出卸载
+
+        mysql>exit              退出客户端
+
+        d:\nysql\bin>net stop mysql         停止服务
+
+        d:\mysql\bin>mysqld --remove     卸载服务 
