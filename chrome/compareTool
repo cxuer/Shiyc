@@ -1,0 +1,20 @@
+使用beyond compare4作为Git的比较工具
+
+git config --global diff.tool bc4
+git config --global difftool.prompt false
+git config --global difftool.bc4.cmd '"C:\Program Files\Beyond Compare 4\BCompare.exe" "$LOCAL" "$REMOTE"'
+
+git config --global merge.tool bc4
+git config --global mergetool.prompt false
+git config --global mergetool.bc4.cmd '"C:\Program Files\Beyond Compare 4\BCompare.exe" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'
+git config --global mergetool.bc4.trustexitcode true
+————————————————
+BeyondCompare4完美"破解"
+
+将以下操作保存为bat文件(新建txt，然后将后缀改为bat)，然后双击运行即可。
+reg delete "HKEY_CURRENT_USER\Software\Scooter Software\Beyond Compare 4" /v CacheID /f
+这个操作是删除BeyondCompare4注册表里CacheID的值；
+
+如果你不嫌麻烦的话，可以等到试用期到了之后自己手动执行该操作，重新打开之后试用期就又是30天了；
+
+https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe
